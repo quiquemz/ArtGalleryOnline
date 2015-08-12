@@ -1,31 +1,36 @@
-$light-grey: #f5f5f5;
+$light-grey: #f;
 
-body.background{
-  background-color: #ffc500;
+body.theme{
+  background-color: #f0c100;
+  color: white;
 }
 
 div.flex-container {
+  padding: 15px 10vw 15px 10vw;
   display: flex;
   flex-flow: column wrap; /* shorthand for flex-direction and flex-wrap */
-  height: 100vh;
-  padding: 15px 10vw 15px 10vw;
+  height: 100vw;
 }
 
 
 div.flex-item {
   background-color: $light-grey;
-  margin: 0 20px 20px 0px;
-  padding: 20px;
+  margin: 0 20px 0px 0px;
+  padding: 10px;
   width: 30%;
-  border: 1px solid #555;
   flex: 0 0 auto;
 }
 
 div.search-box {
   margin-top: 20px;
+  text-align: right;
 }
 
-img.icon {
+div.social-box {
+  text-align: right;
+}
+
+img.social-icon {
   width: 20px;
   height: 20px;
 }
@@ -34,7 +39,7 @@ div.tabs-box {
   margin-left: 10vw;
 }
 
-li.artstyle-tab {
+li.tab-artstyle {
   background-color: $light-grey;
   margin: 10px 10px 20px 0;
 }
@@ -48,9 +53,6 @@ div.link-container{
   text-decoration: underline;
 }
 
-div.social-icons {
-  text-align: right;
-}
 
 @media (max-width:768px){
   div.pad {
