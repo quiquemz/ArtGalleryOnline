@@ -1,17 +1,21 @@
-$light-grey: #f;
+//VARIABLES
+$light-grey: #f5f5f5;
 
+
+//SITE THEME
 body.theme{
   background-color: #f0c100;
-  color: white;
 }
+//END//
 
+
+// FLEX-BOX CLASSES
 div.flex-container {
   padding: 15px 10vw 15px 10vw;
   display: flex;
   flex-flow: column wrap; /* shorthand for flex-direction and flex-wrap */
   height: 100vw;
 }
-
 
 div.flex-item {
   background-color: $light-grey;
@@ -20,12 +24,37 @@ div.flex-item {
   width: 30%;
   flex: 0 0 auto;
 }
+//END//
 
+
+// MASONRY GRID, BOX & ITEM
+#masonry-grid {
+  width: 80%;
+  margin: 0 auto;
+}
+
+div.grid-box {
+  background-color: $light-grey;
+  margin: 0 20px 0px 0px;
+  padding: 10px;
+}
+
+div.grid-item {
+  width: 300px;
+  margin: 10px;
+}
+//END//
+
+
+// SEARCH BOX CLASS
 div.search-box {
   margin-top: 20px;
   text-align: right;
 }
+//END//
 
+
+// SOCIAL BOX & ICON CLASSES
 div.social-box {
   text-align: right;
 }
@@ -34,16 +63,22 @@ img.social-icon {
   width: 20px;
   height: 20px;
 }
+//END//
 
+
+// TABS BOX & CLASSES
 div.tabs-box {
   margin-left: 10vw;
 }
 
-li.tab-artstyle {
+li.tabs-style {
   background-color: $light-grey;
-  margin: 10px 10px 20px 0;
+  color: black;
 }
+//END//
 
+
+// LINKS CLASSES
 a.link-color {
   color: black;
 }
@@ -52,11 +87,14 @@ div.link-container{
   text-align: right;
   text-decoration: underline;
 }
+//END//
 
 
+//@MEDIA
 @media (max-width:768px){
   div.pad {
     max-width: 500px;
     width: 97%;
   }
 }
+//END//

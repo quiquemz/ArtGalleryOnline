@@ -1,6 +1,5 @@
 body.theme {
-  background-color: #f0c100;
-  color: white; }
+  background-color: #f0c100; }
 
 div.flex-container {
   padding: 15px 10vw 15px 10vw;
@@ -16,7 +15,7 @@ div.flex-container {
 
 div.flex-item {
   background-color: #f5f5f5;
-  margin: 0 20px 20px 0px;
+  margin: 0 20px 0px 0px;
   padding: 10px;
   width: 30%;
   -webkit-box-flex: 0;
@@ -24,8 +23,22 @@ div.flex-item {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto; }
 
+#masonry-grid {
+  width: 80%;
+  margin: 0 auto; }
+
+div.grid-box {
+  background-color: #f5f5f5;
+  margin: 0 20px 0px 0px;
+  padding: 10px; }
+
+div.grid-item {
+  width: 300px;
+  margin: 10px; }
+
 div.search-box {
-  margin-top: 20px; }
+  margin-top: 20px;
+  text-align: right; }
 
 div.social-box {
   text-align: right; }
@@ -37,9 +50,9 @@ img.social-icon {
 div.tabs-box {
   margin-left: 10vw; }
 
-li.tab-artstyle {
+li.tabs-style {
   background-color: #f5f5f5;
-  margin: 10px 10px 20px 0; }
+  color: black; }
 
 a.link-color {
   color: black; }

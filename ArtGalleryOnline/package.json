@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "angular-masonry": "^0.11.1"
   }
 }

@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('artGallery', []);
+    var app = angular.module('artGallery', ['wu.masonry']);
 
 
     app.controller('ArtGalleryController', function () {
@@ -96,6 +96,5 @@
 
 
     var artStyles = getArtStyles( artPieces );
-    console.log(artStyles);
 
 })();
