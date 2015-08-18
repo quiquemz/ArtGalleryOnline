@@ -47,11 +47,19 @@ img.social-icon {
   width: 20px;
   height: 20px; }
 
-div.tabs-box {
-  margin-left: 10vw; }
+img.logo {
+  width: 40px;
+  height: 40px; }
+
+div#tabs-box {
+  width: 80%;
+  margin: 0 auto; }
 
 li.tabs-style {
   background-color: #f5f5f5;
+  color: black; }
+
+a.tab-button {
   color: black; }
 
 a.link-color {
