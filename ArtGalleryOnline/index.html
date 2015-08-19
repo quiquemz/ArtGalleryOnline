@@ -25,16 +25,6 @@
 
 <body>
 
-<div class="name">Tim</div>
-<div class="name">Joe</div>
-<div class="name">Kara</div>
-<div class="name">Karla</div>
-<div class="name">Quique</div>
-<div class="name">Ceci</div>
-<div class="name">Pau</div>
-<div class="name">Juanpi</div>
-<div class="name">Saul</div>
-<div class="name">Rose</div>
 <!-- INFORMATION HEADEAR -->
 <div class="container-fluid">
     <div class="row">
@@ -103,26 +93,6 @@
 
 <!-- scripts -->
 <script src="js/ajax-request.js"></script>
-
-<script>
-    $("input").keyup(function() {
-
-        var value = $(this).val().toLowerCase();
-
-        $(".name").hide();
-
-        $(".name").each(function() {
-
-            var text = $(this).text().toLowerCase();
-
-            if (text.indexOf(value) !== -1) {
-                $(this).show();
-            }
-
-        });
-
-    });
-</script>
 
 </body>
 </html>

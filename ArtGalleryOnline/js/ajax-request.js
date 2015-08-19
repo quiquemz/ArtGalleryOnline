@@ -25,12 +25,29 @@ $(document).ready()
         });
     }
 
-    function search( elementToReload ){
+    function search( elementToSearch, elementToReload ){
 
         $(".form-control").keyup(function() {
 
             var value = $(this).val().toLowerCase();
 
+            console.log(value);
+
+            elementToSearch.hide();
+
+            elementToSearch.each( function() {
+
+                var text = $(this).text().toLowerCase();
+                console.log(text);
+
+                if( text.indexOf( value ) !== -1) {
+
+                    $(this).show();
+
+                }
+            });
+
+            elementToReload.masonry();
         })
 
     };
@@ -79,6 +96,7 @@ $(document).ready()
             };
             // jQuery
             var $container = $('#masonry-grid');
+            var $box = $('.grid-item');
 
             // initialize
             $container.masonry({
@@ -89,7 +107,7 @@ $(document).ready()
             $container.masonry('reloadItems');
 
             clickTab($container);
-            search($container);
+            search($box, $container);
         }
     });
 
