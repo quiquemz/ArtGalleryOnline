@@ -60,9 +60,13 @@ li.tabs-style {
   color: black; }
 
 a.tab-button {
-  color: black; }
+  color: black;
+  cursor: pointer; }
 
 a.link-color {
+  color: black; }
+
+a.link-gallery {
   color: black; }
 
 div.link-container {

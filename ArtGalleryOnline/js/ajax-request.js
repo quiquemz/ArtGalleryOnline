@@ -31,14 +31,11 @@ $(document).ready()
 
             var value = $(this).val().toLowerCase();
 
-            console.log(value);
-
             elementToSearch.hide();
 
             elementToSearch.each( function() {
 
                 var text = $(this).text().toLowerCase();
-                console.log(text);
 
                 if( text.indexOf( value ) !== -1) {
 
@@ -51,6 +48,29 @@ $(document).ready()
         })
 
     };
+
+    function limitTo( element, start, end ) {
+
+        var newElement = element.slice(start, end);
+        var index = end - 1;
+
+        if ( element.charAt(end) !== " ") {
+
+            for( var i = newElement.length - 1; i >= 0; i-- ){
+
+                if( newElement.charAt(i) === " ") {
+                    index = i;
+                    break;
+                }
+
+            }
+
+            newElement = newElement.slice(start, index);
+
+        }
+
+        return newElement;
+    }
 
     //Using JQuery
     //TABS AjaxRequest
@@ -86,28 +106,38 @@ $(document).ready()
                     "<img class='img-responsive' src='" + file[i].art_url +
                     "' alt='Image not available'/>" +
                     "<h4>" + file[i].art_title + " | " + file[i].artist_name + "</h4>" +
-                    "<p>" + file[i].art_description + "</p>" +
+                    "<p class='description'>" + file[i].art_description + "</p>" +
                     "<div class='link-container'>" +
-                    "<a href='#' class='link-color'>Check complete info</a>" +
+                    "<a href='" + file[i].art_url + "' class='link-gallery'>Check complete info</a>" +
                     "</div>" +
                     "</div>" +
                     "</div>";
                 $('#masonry-grid').append(template);
             };
-            // jQuery
+
+            // Variables for clickTab and search functions
             var $container = $('#masonry-grid');
             var $box = $('.grid-item');
 
-            // initialize
+            //--> Initialize MASONRY
             $container.masonry({
                 columnWidth: 320,
                 itemSelector: '.grid-item'
             });
-
             $container.masonry('reloadItems');
+
+
 
             clickTab($container);
             search($box, $container);
+
+            //--> Initialize MAGNIFICENT POPUP
+            $('.link-gallery').magnificPopup({
+                type:'image',
+                gallery:{
+                    enabled:true
+                }
+            });
         }
     });
 

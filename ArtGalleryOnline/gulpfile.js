@@ -25,7 +25,8 @@ gulp.task('serve', ['sass'], function () {
     browserSync({
         server: {
             baseDir: "./"
-        }
+        },
+        port: 8080
     });
 
     // add browserSync.reload to the tasks array to make
