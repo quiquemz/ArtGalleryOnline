@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html ng-app="artGallery" lang="en">
 
 <head>
 
@@ -11,21 +11,23 @@
     <meta name="author" content="SitePoint">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-    <!-- Links -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="node_modules/magnific-popup/dist/magnific-popup.css"> <!-- Magnific Popup core CSS file -->
+    <!--CSS Styleshits-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="csshake-master/csshake.css">
 
     <!-- Scripts CDN's-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> <!-- JQuery -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!-- Bootstrap -->
 
     <!-- Scripts NPM's-->
-    <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script> <!-- Masonry Framework -->
+    <script src="/node_modules/angular/angular.js"></script><!-- AngularJS -->:
     <script src="node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script> <!-- Magnific Popup core JS file -->
+    <script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script><!-- Isotope -->
 
 </head>
 
-<body>
+<body ng-controller="ArtGalleryController as gallery">
 
 <!-- INFORMATION HEADEAR -->
 <div class="container-fluid">
@@ -35,7 +37,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <a href="" class="link-color">About this site</a> | <a href="" class="link-color">Contact Us</a>
+            <a href="" class="link-color">About this site |</a> <a href="" class="link-color">Contact Us</a>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-8 col-xs-6 social-box">
             <a href="https://www.facebook.com/?_rdr" >
@@ -56,14 +58,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-            <h1>
-                <img class="logo" src="https://38.media.tumblr.com/avatar_1677c7933c28_128.png" alt="Not available"/>
+            <h1 class="theme shake shake-slow">
+                <img class="logo shake shake-slow" src="https://38.media.tumblr.com/avatar_1677c7933c28_128.png" alt="Not available"/>
                 Art Gallery Online
             </h1>
         </div>
 
         <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12 search-box">
-            <input type="text" class="form-control" placeholder="Search an artist or picture" >
+            <input type="text" class="form-control" placeholder="Search an artist or picture" ng-model="searchText">
         </div>
 
     </div>
@@ -73,29 +75,48 @@
 <hr>
 
 <!-- STYLE TABS -->
-<div id="tabs-box">
-    <ul class='nav nav-pills'>
-        <!--
-            Important File: js/ajax-request.js & json/tabs.json
-            ArtStyleTabs: Cubism, Renaissance, Impressionism, etc.
-        -->
-    </ul>
+<div id="tabs-margin" class="container">
+
+    <div class="collapse navbar-collapse" id="tabs-box">
+        <ul id="padding" class="nav nav-tabs">
+            <li class="tabs-style shake shake-rotate">
+                <a href ng-click="gallery.current_style = 'All'" class="tab-button">Show All</a>
+            </li>
+            <li class="tabs-style shake shake-rotate" ng-repeat="tab in gallery.style_tabs">
+                <a href ng-click="gallery.current_style = tab" class="tab-button">{{ tab }}</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <!-- GALLERY using masonry-->
-<div id="masonry-grid">
-    <!--
-        Important Files: js/ajax-request.js & json/gallery.json
-        ITEMS: Box, Picture, Name, etc.
-    -->
+<div id="isotope-grid">
+    <div class="grid-item" ng-repeat="art in gallery.product | filter:searchText" ng-show="(art.art_style[0] === gallery.current_style) || (art.art_style[1] === gallery.current_style) ">
+        <img class="img-responsive" ng-src="{{ art.art_url }}" alt="Image not available"/>
+        <h4>{{ art.art_title }} | {{ art.artist_name }}</h4>
+        <p>{{ art.art_description }}...</p>
+        <div class="link-container">
+            <a href="{{ art.art_url }}" class="link-gallery">Check complete info here</a>
+        </div>
+    </div>
 </div>
 
+
+
 <!-- scripts -->
-<script src="js/ajax-request.js"></script>
+<script src="js/app.js"></script>
+<script src="js/magnific-popup.js"></script>
+<script src="js/isotope-jquery.js"></script>
 
 <script>
-    $('.description').each(function() {
-        console.log($(this).text());
+    //Stack menu when collapsed
+    $('#tabs-box').on('show.bs.collapse', function() {
+        $('.nav-pills').addClass('nav-stacked');
+    });
+
+    //Unstack menu when not collapsed
+    $('#tabs-box').on('hide.bs.collapse', function() {
+        $('.nav-pills').removeClass('nav-stacked');
     });
 </script>
 

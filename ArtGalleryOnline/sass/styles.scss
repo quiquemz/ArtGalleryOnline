@@ -3,58 +3,24 @@ $light-grey: #f5f5f5;
 
 
 //SITE THEME
-body.theme{
-  background-color: #f0c100;
+body {
+  background-image: url("../assets/background.png");
 }
 //END//
 
-
-// FLEX-BOX CLASSES
-div.flex-container {
-  padding: 15px 10vw 15px 10vw;
-  display: flex;
-  flex-flow: column wrap; /* shorthand for flex-direction and flex-wrap */
-  height: 100vw;
+h1.theme {
+  color: white;
 }
-
-div.flex-item {
-  background-color: $light-grey;
-  margin: 0 20px 0px 0px;
-  padding: 10px;
-  width: 30%;
-  flex: 0 0 auto;
-}
-//END//
-
-
-// MASONRY GRID, BOX & ITEM
-#masonry-grid {
-  width: 80%;
-  margin: 0 auto;
-}
-
-div.grid-box {
-  background-color: $light-grey;
-  margin: 0 20px 0px 0px;
-  padding: 10px;
-}
-
-div.grid-item {
-  width: 300px;
-  margin: 10px;
-}
-//END//
-
 
 // SEARCH BOX CLASS
 div.search-box {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: right;
 }
 //END//
 
 
-// SOCIAL BOX & ICON CLASSES
+// ICON CLASSES & SOCIAL BOX
 div.social-box {
   text-align: right;
 }
@@ -67,31 +33,14 @@ img.social-icon {
 img.logo {
   width: 40px;
   height: 40px;
+  border-radius: 25px;
+  box-shadow: #000000 5px 5px 10px;;
 }
 //END//
-
-
-// TABS BOX & CLASSES
-div#tabs-box {
-  width: 80%;
-  margin: 0 auto;
-}
-
-li.tabs-style {
-  background-color: $light-grey;
-  color: black;
-}
-
-a.tab-button {
-  color: black;
-  cursor: pointer;
-}
-//END//
-
 
 // LINKS CLASSES
 a.link-color {
-  color: black;
+  color: white;
 }
 
 a.link-gallery {
@@ -101,6 +50,56 @@ a.link-gallery {
 div.link-container{
   text-align: right;
   text-decoration: underline;
+}
+//END//
+
+
+// TABS BOX & CLASSES
+div#tabs-margin {
+  margin: 0 auto;
+  width: 90%;
+  padding: 0;
+}
+
+div#tabs-box {
+
+  padding: 0;
+}
+
+ul#padding {
+  padding-bottom: 10px;
+}
+
+li.tabs-style {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: #000000 1px 1px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+a.tab-button {
+  color: black;
+  cursor: pointer;
+}
+//END//
+
+// ISOTOPE GRID, BOX & ITEM
+#isotope-grid {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.grid-item {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: #000000 1px 1px 10px;
+  width: 300px;
+  margin: 10px 10px 0px 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+img.img-responsive{
+  border-radius: 5px;
 }
 //END//
 
